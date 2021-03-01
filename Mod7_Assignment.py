@@ -2,8 +2,7 @@
 
 from datetime import datetime
 from datetime import timedelta
-import time
-import sys
+
 
 now = datetime.today()
 print("The current date and time is: ", now)
@@ -25,33 +24,13 @@ for line in sys.stdin:
         print("{0}\t{1}\t{2}".format(now.strftime("%m/%d/%Y %I:%M:%S %p"), item, cost))
 
 
-#import sys
-
-#for line in sys.stdin:
-#    data = line.strip().split("\t")
-#
-#    if len(data) == 6:
-#       date, time, store, item, cost, payment = data
-#       print("{0}\t{1}\t{2}".format(item, cost, time))
-
-
-#### From Dr. Friedman ###
-
-#import sys
-import datetime
-
-#data = datetime.datetime.now().time()
-#print("current time: ")
-#print(data)
-#print("")
-
 
 # 2.  Add the timedelta to the datetime and subtract 60 second and added 2 year .
 #     (Hit: timedelta(seconds=60))  For each condition, state the code and output.
 
 print("Adjusted date time (add 2 years, minus 60 sec) is: ", now + timedelta(weeks = 104, seconds = -60))
 
-
+print("One day added: ", now + timedelta(days = 1))
 
 
 from datetime import timedelta
@@ -92,6 +71,7 @@ def distance():
     dfeet = feet + cfeet
     dtimemin = round(dfeet/272.8, 2)
     dtime = datetime.today() + timedelta(minutes = dtimemin)
-    print("You will arrive at {0}:{1} walking that distance.".format(dtime.hour, dtime.minute))
+    print("Your trip will take {0} minutes.".format(dtimemin))
+    print("You will arrive at {0} walking that distance.".format(dtime.strftime("%I:%M:%S %p")))
 
 distance()
